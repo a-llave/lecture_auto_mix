@@ -1,0 +1,99 @@
+
+\captionsetup{labelformat=empty,labelsep=none,font=tiny, textfont=it}
+\setbeamerfont{caption}{size=\tiny, shape=\itshape}
+\setlength\belowcaptionskip{-2pt}
+%\setbeamerfont{caption name}{series=\bfseries}
+%\DeclareCaptionLabelFormat{mycaption}{\usebeamercolor[fg]{caption name}#1 #2. }
+%\captionsetup[figure]{labelformat=mycaption, labelsep=none, labelfont=bf}
+
+\beamertemplatenavigationsymbolsempty % remove navigation line
+\setbeamertemplate{footline}[frame number] % add frame number
+
+\definecolor{myred}{rgb}{0.8, 0.0, 0.0} % define red
+\definecolor{csviolet}{rgb}{0.588, 0.008, 0.235} % define CS violet
+\definecolor{dgreen}{rgb}{0.,0.6,0.}
+
+\setbeamercolor{section in head/foot}{fg=csviolet}
+ 	
+\setbeamercolor{itemize item}{fg=csviolet}
+\setbeamercolor{itemize subitem}{fg=cyan}
+\setbeamertemplate{itemize item}[circle]
+\setbeamertemplate{itemize subitem}[triangle]
+
+\setbeamercolor{section number projected}{bg=csviolet}
+\setbeamertemplate{sections/subsections in toc}[circle]
+
+% new env without headline
+\makeatletter
+    \newenvironment{withoutheadline}{
+        \setbeamertemplate{headline}[default]
+        \def\beamer@entrycode{\vspace*{-\headheight}}
+    }{}
+\makeatother
+
+\makeatletter
+    \newenvironment{withoutfootline}{
+        \setbeamertemplate{footline}[default]
+        \def\beamer@entrycode{\vspace*{-\headheight}}
+    }{}
+\makeatother
+
+%\addtobeamertemplate{frametitle}{}{
+%\begin{textblock*}{100mm}(.97\textwidth,-1cm)
+%\includegraphics[height=0.4cm]{fig/logos/CentraleSupelec.png}\vspace{-0.9cm}
+%\end{textblock*}}
+
+%\setbeamertemplate{footline}{% 
+%  \hfill% 
+%  \usebeamercolor[fg]{page number in head/foot}% 
+%  \usebeamerfont{page number in head/foot}% 
+%  \insertframenumber%
+%  %\,/\,\inserttotalframenumber
+%  \kern1em\vskip2pt% 
+%}
+
+\definecolor{crimson}{rgb}{0.86, 0.08, 0.24}
+\definecolor{myGreen}{rgb}{0.2, 0.71, 0.2}
+\definecolor{babyblue}{rgb}{0.54, 0.81, 0.94}
+\definecolor{tabblue}{RGB}{31, 119, 180}
+
+
+\newtcolorbox{myblockred}[1]{%
+    tikznode boxed title,
+    enhanced,
+    arc=3mm,
+    interior style={white},
+    attach boxed title to top center= {yshift=-\tcboxedtitleheight/2},
+    fonttitle=\bfseries,
+    colbacktitle=white,coltitle=crimson,
+    boxed title style={size=normal,colframe=white,boxrule=0pt},
+    before upper={\parindent15pt},
+    title={#1}
+}
+
+\newtcolorbox{myblockgreen}[1]{%
+    tikznode boxed title,
+    enhanced,
+    arc=3mm,
+    interior style={white},
+    attach boxed title to top center= {yshift=-\tcboxedtitleheight/2},
+    fonttitle=\bfseries,
+    colbacktitle=white,coltitle=myGreen,
+    boxed title style={size=normal,colframe=white,boxrule=0pt},
+    before upper={\parindent15pt},
+    title={#1}
+}
+
+\newtcolorbox{myblockblue}[1]{%
+    tikznode boxed title,
+    enhanced,
+    arc=3mm,
+    interior style={white},
+    attach boxed title to top center= {yshift=-\tcboxedtitleheight/2},
+    fonttitle=\bfseries,
+    colbacktitle=white,coltitle=babyblue,
+    boxed title style={size=normal,colframe=white,boxrule=0pt},
+    before upper={\parindent15pt},
+    title={#1}
+}
+

@@ -1,0 +1,150 @@
+
+
+ref video game
+Schmidt, B. (2003). Interactive mixing of game audio. In Audio Engineering Society Convention
+(Vol. 115). Audio Engineering Society.
+
+Owsinski [106] identified five key components to consider while
+making a mix, and they are
+• Balance,
+• Spectrum,
+• Space,
+• Depth, and
+• Dynamics.
+Owsinski, B. (2013). The mixing engineer’s handbook. Nelson Education.
+
+The way in which a piece of music is mixed can heavily influence the way in which it is perceived, in terms of preference, perceived quality, and evoked emotion.
+
+three different approaches for modelling the decision-making process in IMS:
+- knowledge encoding,
+- expert systems, 
+- data-driven approaches (DeMan and Reiss [33])
+
+======================================
+I - knowledge encoding
+"Grounded Theory"
+ethnographic studies of mixing practice, interview, survey
+
+approach limited to a set of rules
+most approaches only automate one type of audio effect (balance with equal loudness, unmasking, transient with DRC, reverb,...)
+
+important pour comprendre les pratiques de mix et ok pour de l'entrainement
+mais ne permet pas d'"explorer" et de rencontrer des "heureux accidents" (Sérendipité)
+
+======================================
+II - Expert Systems
+
+Modélisation du processus de décision humain
+series of if-then-else rules
+
+constraint optimisation problem: a serie of goals are defined, in a mathematical form, and the system must perform a search for the mathematically optimal solution
+
+- approche des moindres carrés
+- algorithme génétique
+- Optimisation par essaims particulaires (modélisation de vol d'oiseau)
+
+(compromis exploration vs. exploitation)
+https://youtu.be/8xycqWWqz50?t=67
+
+The inherent complexity of music mixing means that there is no certain optimal solution, but a number of different appropriate mixes given a set of contexts [64].
+64: Jillings, N.,&Stables, R. (2017). Automatic masking reduction in balance mixes using evolutionary computing. In Audio Engineering Society Convention (Vol. 143). Audio Engineering Society.
+
+Expert-based system relies on the assumption that experts will make consistent, agreeable decisions.
+This implies that experts should be considered to be time invariant—that an engineer who applies a given equaliser setting today would apply the same equaliser setting tomorrow, or next year.
+
+======================================
+III - Data Driven
+
+These approaches rely on analysis on datasets or lots of example mixes and use this to extrapolate some set of mixing parameters.
+discover how the audio features can be related to a specific mixing decision.
+
+Reed, D. (2000). A perceptual assistant to do sound equalization. In Proceedings of the 5th
+International Conference on Intelligent User Interfaces (pp. 212–218). ACM.
+
+one of the largest restricting factors within a data-driven approach for intelligent mixing is data gathering.
+And networks need to be able to deal with missing instruments, e.g. some tracks will have a brass section, or a violin track, but many will not, as Bittner et al. [9] identify that within their dataset only two of the 16 instruments exist in more than 50% of the multitracks.
+Bittner, R. M., Salamon, J., Tierney, M., Mauch, M., Cannam, C., & Bello, J. P. (2014).
+MedleyDB: A multitrack dataset for annotation-intensive MIR research. In 15th International
+Society for Music Information Retrieval Conference (ISMIR 2014).
+
+"This system learns the full music production process of drum mixing and demonstrates that the intelligently produced mix is indistinguishable from the professional engineer-generated mix"
+
+
+audio manipulation classique ou direct transformation du signal ? Semble plus souple et créative
+(problème de l'ordre des traitements par exemple)
+Music is a complex system, and the large multichannel signal modification required, with several different mapping layers and understanding the inter-correlation between different audio effect parameters, audio effect ordering in the signal chain, and processing approaches, makes this a highly complex and nonlinear search space
+
+
+Deep learning
+métaphore recette cuisine et processus chaud/froid
+structuration du réseau et régularisation : recette "à trous"
+
+======================================
+IV - Quel type d'interface humain-machine ?
+
+différentes applications :
+- aide à la décision/préprocessing vs. full automatic (personne devant la console)
+- amateur vs. pro
+
+Différents niveaux d'intéraction :
+- Automatic,
+- Independent, 
+- Recommendation,
+- Discovery.
+
+Automatic:
+- amateur
+- benchmark mix
+- video game
+
+Independent: human supervisor
+- repisse micro, recalage entre micro, démasquage
+- pour amateur et pro
+
+analogie avec les manoeuvres automatiques pour la voiture autonome
+
+Recommendation: "suggestive mixing system"
+- automatic labelling of instrument tracks
+- adaptive audio effect parameter settings
+- suggestion of the audio effect chain
+- hierarchie de stem
+
+Descriptor to audio effect parameter
+-> analogie "prompt to picture"
+Sauer, C., Roth-Berghofer, T., Auricchio, N., & Proctor, S. (2013). Recommending audio mixing workflows. In International Conference on Case-Based Reasoning (pp. 299–313). Springer.
+
+Avantage : interprétable et adaptable
+
+Discovery: 
+- mix visualization
+- comparaison avec un mix cible
+- description qualitative (textuelle) ou quantitative (numérique) du mix
+
+Exemples
+- automatically identify the chorus and verse components
+Hargreaves, S., Klapuri, A., & Sandler, M. B. (2012). Structural segmentation of multitrack
+audio. IEEE Transactions on Audio, Speech, and Language Processing, 20(10), 2637–2647.
+- analysing and visualising the level of inter-track masking within a mix, Izotope Neutron
+Wichern, G., Wishnick, A., Lukin, A., & Robertson, H. (2015). Comparison of loudness features for automatic level adjustment in mixing. In Audio Engineering Society Convention (Vol. 139).
+Ford, J., Cartwright, M., & Pardo, B. (2015). Mixviz: A tool to visualize masking in audio mixes. In Audio Engineering Society Convention (Vol. 139). Audio Engineering Society.
+
+- analysed and identified the reverberation level and the impact it had on every track within a mix
+De Man, B., McNally, K., & Reiss, J. D. (2017). Perceptual evaluation and analysis of reverberation in multitrack music production. Journal of the Audio Engineering Society, 65(1/2), 108–116.
+
+
+V - Discussion
+
+mixing = "black art"
+Birtchnell, T., & Elliott, A. (2018). Automating the black art: Creative places for artificial
+intelligence in audio mastering. Geoforum, 96, 77–86.
+
+"quel sens dois-je donner à ma vie ?"
+42 response
+
+
+future:
+- better understanding of the fundamentals of music
+- help reduce laborious tasks of finding the appropriate sounds in libraries of millions of different sounds
+- recommendation of alternative instrument (for the timbre) for voicing or re-voicing different melodies allows much greater control over the shape of the timbre.
+- video game and augmented reality (mix added to the local soundscape!)
+
