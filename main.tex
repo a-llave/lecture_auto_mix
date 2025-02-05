@@ -60,7 +60,7 @@
 	\vspace{0.7cm}
 	{\small Adrien Llave}
 
-	\footnotesize novembre 2023
+	\footnotesize février 2025
 \end{frame}
 \end{withoutfootline}
 \end{withoutheadline}
@@ -276,38 +276,27 @@ Revue détaillée des \emph{cross-adaptive effects} \cite{reiss_applications_201
 \end{frame}
 
 \begin{frame}{Notion d'espace d'optimisation} %--------------------------
-Imaginez, un espace...
-\begin{figure}
-\only<1>{\includegraphics[width=.5\textwidth]{fig/space3d_1.png}}
-\only<2>{\includegraphics[width=.5\textwidth]{fig/space3d_2.png}}
-\only<3->{\includegraphics[width=.5\textwidth]{fig/space3d_3.png}}
-\end{figure}
 
-Un vecteur/point de l'espace = un signal
-
-\end{frame}
-
-
-\begin{frame}{Notion d'espace d'optimisation} %--------------------------
 \begin{columns}
-    \begin{column}{0.6\textwidth}
-Imaginez, un espace à N dimensions...
+    \begin{column}{0.58\textwidth}
+    
+	Imaginez, un espace...
+	\begin{figure}
+	\only<1>{\includegraphics[width=.9\textwidth]{fig/space3d_1.png}}
+	\only<2>{\includegraphics[width=.9\textwidth]{fig/space3d_2.png}}
+	\only<3->{\includegraphics[width=.9\textwidth]{fig/space3d_3.png}}
+	\end{figure}
 
-\includegraphics[width=.9\textwidth]{fig/spacend_music.png}
+	Un vecteur/point de l'espace peut être
 
-\begin{itemize}
-	\item notion importante : le produit scalaire
-	\begin{itemize}
-		\item ressemblance entre deux vecteurs (signaux)
-	\end{itemize}
-	\item "Malédiction des grandes dimensions" :
-	\begin{itemize}
-		\item 44.1 kHz $\times$ 60 sec. $\times$ stereo = 5,3 millions de dim. !
-	\end{itemize}
-\end{itemize}
+
 	\end{column}
     \begin{column}{0.4\textwidth}
 	
+	\only<4->{
+	Comment comparer la ressemblance entre deux vecteurs ?
+	}
+	\only<5->{
 	\begin{myblockred}{Produit scalaire}
 	Soit 2 vecteurs $\xv$ et $\yv$ en 3D :
 	\begin{align*}
@@ -322,6 +311,41 @@ Imaginez, un espace à N dimensions...
 				&= ||\xv|| \ ||\yv|| \ \cos(\widehat{\xv, \yv})
 	\end{align*}
 	\end{myblockred}
+	}
+
+    \end{column}
+\end{columns}
+
+\end{frame}
+
+
+\begin{frame}{Notion d'espace d'optimisation : "malédiction des grandes dimensions"} %--------------------------
+\begin{columns}
+    \begin{column}{0.4\textwidth}
+Imaginez, un espace à N dimensions...
+	\onslide<1->{\includegraphics[width=.9\textwidth]{fig/mixingboard.jpg}}
+	\onslide<2->{\includegraphics[width=.9\textwidth]{fig/spacend_music.png}}
+
+	\end{column}
+    \begin{column}{0.6\textwidth}
+
+	\begin{itemize}
+	\onslide<1->{\item Espace d'un mixage :
+	\begin{itemize}
+		\item 25 pistes $\times$ 30 paramètres par pistes
+		\item = 750 dimensions
+	\end{itemize}}
+	\onslide<2->{\item Espace des formes d'ondes :
+	\begin{itemize}
+		\item 44.1 kHz $\times$ 60 sec. $\times$ stereo
+		\item = 5,3 millions de dim. !
+	\end{itemize}}
+	\onslide<3->{\item Espace des paramètres d'un réseau de neurones profonds :
+	\begin{itemize}
+		\item $>$ 1 million de dim.
+	\end{itemize}}
+	\end{itemize}
+
     \end{column}
 \end{columns}
 
@@ -391,7 +415,7 @@ voir : \url{https://youtu.be/8xycqWWqz50?t=67}
 \begin{frame}{Systèmes basés sur les données : principe général (ii)} %-----------------------------------------------------
 
 \begin{columns}
-    \begin{column}{0.6\textwidth}
+    \begin{column}{0.55\textwidth}
 \begin{itemize}
 	\item Algorithme : séquence d'instructions déterministe
 	\item Exemple : recette de cuisine
@@ -411,7 +435,7 @@ voir : \url{https://youtu.be/8xycqWWqz50?t=67}
 	\end{itemize}
 \end{itemize}
 \end{column}
-    \begin{column}{0.38\textwidth}
+    \begin{column}{0.45\textwidth}
     \includegraphics[width=\textwidth, page=1]{fig/schemas.pdf}
     \end{column}
 \end{columns}
@@ -485,7 +509,7 @@ voir \url{https://deeperplayground.org}
 		\item très lourd
 		\item l'apprentissage ne converge pas ! 
 \end{itemize}
-	\item suffisant en théorie (théorème d'approximation universelle)
+	\item suffisant en théorie \footnote{théorème d'approximation universelle \cite{cybenko_approximation_1989}}
 	\item il faut ajouter des \emph{a priori} dans le système
 	\begin{itemize}
 		\item exemples : dépendance dans le temps, structure harmonique...
@@ -575,7 +599,7 @@ On cherche la combinaison des paramètres $\theta_0, \theta_1, ...$ qui minimise
 
 \begin{columns}
     \begin{column}{0.48\textwidth}
-Algorithme de la "descente de gradient"
+Algorithme de la "descente de gradient" \cite{anderson_1986_1988}
 	\begin{itemize}\small
 		\item suivre la pente descendante de la métrique d'erreur
 		\item (besoin d'un réseau de neurone "dérivable")
@@ -601,13 +625,13 @@ Challenges :
 
 \end{frame}
 
-\begin{frame}{Console de mixage "différentiable"} %----------------
+\begin{frame}{Console de mixage "différentiable" - i} %----------------
 
 \begin{figure}
 	\includegraphics[width=\textwidth]{fig/steinmetz2021_diffmix.png}
 	\caption{Architecture de DNN de mixage automatique de \cite{steinmetz_automatic_2020}}
 \end{figure}
-écouter \url{https://csteinmetz1.github.io/dmc-icassp2021/}
+Exemples audio : \scriptsize \url{https://csteinmetz1.github.io/dmc-icassp2021/}
 
 \begin{columns}
     \begin{column}{0.48\textwidth}
@@ -619,13 +643,13 @@ Challenges :
 \end{columns}
 \end{frame}
 
-\begin{frame}{} %-----------------------------------------------------
+\begin{frame}{Console de mixage "différentiable" - ii} %-----------------------------------------------------
 
 \begin{figure}
 	\includegraphics[width=\textwidth]{fig/martinez_ramirez2022_architecture.png}
 	\caption{Architecture de DNN de mixage automatique de \cite{martinez-ramirez_automatic_2022}}
 \end{figure}
-écouter \url{https://marco-martinez-sony.github.io/FxNorm-automix/AUDIO_SAMPLES.html}
+Exemples audio : \scriptsize \url{https://marco-martinez-sony.github.io/FxNorm-automix/AUDIO_SAMPLES.html}
 
 \begin{columns}
     \begin{column}{0.48\textwidth}
@@ -637,6 +661,27 @@ Challenges :
 \end{columns}
 \end{frame}
 
+\begin{frame}{Transfert de style de mixage} %-----------------------------------------------------
+
+\begin{columns}
+    \begin{column}{0.48\textwidth}
+		\begin{itemize}
+			\item MLP : perceptron multi-couches
+			\item \emph{Transformer} : brique de "base" de ChatGPT (et autre \emph{large language model}, LLM) \cite{vaswani_attention_2017}
+		\end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+
+\begin{figure}
+	\includegraphics[width=.8\textwidth]{fig/diff_mst_2024.jpg}
+	\caption{Architecture de DNN de mixage automatique avec mix de référence \cite{vanka_diff-mst_2024}}
+\end{figure}
+
+    \end{column}
+\end{columns}
+Exemples audio : \scriptsize \url{https://sai-soum.github.io/projects/diffmst/}
+
+\end{frame}
 
 \begin{frame}{Base de données} %---------------------------------
 
@@ -779,12 +824,13 @@ Avantage : interprétable et adaptable
     \begin{column}{0.58\textwidth}
     
 \begin{itemize}
-	\item 15 ans de recherche (depuis 2007)
-	\item essor du deep learning depuis 5 ans (depuis 2016)
+	\item 18 ans de recherche (depuis 2007)
+	\item essor du deep learning depuis 9 ans (depuis 2016)
 	\item un problème fondamentalement mal posé ?
 	\begin{itemize}
-		\item pas de "vérité terrain" \cite{birtchnell_automating_2018}
+		\item pas de "vérité terrain"~\cite{birtchnell_automating_2018}
 	\end{itemize}
+	\item le mixage automatique avec référence (\emph{mixing style transfer}) semble plus approprié~\cite{vanka_diff-mst_2024}
 \end{itemize}
 
 \end{column}
